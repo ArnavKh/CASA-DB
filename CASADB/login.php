@@ -32,7 +32,17 @@
                          session_start();
                          $_SESSION['id'] = $row['S_ID'];
                          $_SESSION['S_Name'] = $row['S_Name'];
-                         header("Location: home_admin.php");
+
+                         if ($row['S_Position'] === 'Admin')
+                         {
+                              header("Location: home_admin.php");
+                         }
+
+                         else
+                         {
+                              header("Location: home.php");
+                         }
+                         
                          exit();
                     }
                     
