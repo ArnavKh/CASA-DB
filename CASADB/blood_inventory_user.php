@@ -33,30 +33,30 @@
      </head>
 
     <body>
-        <div class="main-container">
-            <div class="left-menu">
-                <div>
-                        <a href = "home.php"><h1 id = "navName"><b>CASA</b></h1></a>
-                </div>
+    <div class="main-container">
+          <div class="left-menu">
+               <div>
+                    <a href = "home.php"><h1 id = "navName"><b>CASA</b></h1></a>
+               </div>
 
-                <ul>
-                        <li class="sidebar-item"><a class="sidebar-link" href="home.php"><i class="fa-solid fa-house"></i> Home </a>
-                        </li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="Donor.php"><i class="fas fa-hand-holding-heart"></i> Donor </a>
-                        </li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="Recipient_user.php"><i class="fas fa-procedures"></i> Recipients </a>
-                        </li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="transaction.php"><i class="fas fa-ambulance"></i> Transfusions</a>
-                        </li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="blood_inventory_user.php"><i class="fas fa-vials"></i>
-                            Inventory</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="staff.php"><i class="fas fa-user-md"></i> Staff
-                            </a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="BloodBank.php"><i class="fas fa-user-md"></i> Blood Bank
-                        </a></li>
-                </ul>
-            </div>
-        </div>
+               <ul>
+                    <li class="sidebar-item"><a class="sidebar-link" href="home.php"><i class="fa-solid fa-house"></i> Home </a>
+                    </li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="Donor.php"><i class="fas fa-hand-holding-heart"></i> Donor </a>
+                    </li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="Recipient_user.php"><i class="fas fa-procedures"></i> Recipients </a>
+                    </li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="transaction.php"><i class="fas fa-ambulance"></i> Transfusions</a>
+                    </li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="blood_inventory_user.php"><i class="fas fa-vials"></i>
+                         Inventory</a></li>
+                    <!-- <li class="sidebar-item"><a class="sidebar-link" href="staff.php"><i class="fas fa-user-md"></i> Staff
+                         </a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="BloodBank_admin.php"><i class="fas fa-clinic-medical"></i> Blood Bank
+                    </a></li> -->
+               </ul>
+          </div>
+     </div>
 
         <div class="leftContainer">
             <div class="add">
