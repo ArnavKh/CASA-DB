@@ -63,10 +63,10 @@ mysqli_close($conn);
 
      <body>
 
-        <div class="main-container">
+     <div class="main-container">
           <div class="left-menu">
                <div>
-                    <a href = "home.php"><h1 id = "navName"><b>CASA</b></h1></a>
+                    <a href = "home_admin.php"><h1 id = "navName"><b>CASA</b></h1></a>
                </div>
 
                <ul>
@@ -87,7 +87,6 @@ mysqli_close($conn);
                </ul>
           </div>
      </div>
-
 
 
      <div class="leftContainer">

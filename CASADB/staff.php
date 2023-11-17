@@ -1,6 +1,7 @@
 <?php 
     require_once "pdo.php";
 ?>
+
 <?php 
     if(isset($_POST['bank_ID']) && isset($_POST['name'])){
         $sql = "INSERT INTO staff(Bank_ID,S_Name,S_Position,S_Email,S_Password,S_Phone_No) VALUES(:Bank_ID,:S_Name,:S_Position,:S_Email,:S_Password,:S_Phone_No)";
@@ -45,10 +46,10 @@
 
      <body>
 
-     <div class="main-container">
+        <div class="main-container">
             <div class="left-menu">
                 <div>
-                        <a href = "home.php"><h1 id = "navName"><b>CASA</b></h1></a>
+                        <a href = "home_admin.php"><h1 id = "navName"><b>CASA</b></h1></a>
                 </div>
 
                 <ul>
@@ -86,7 +87,7 @@
 
                         <input type="email" placeholder = "Email" name="email" id="email"><br>
 
-                        <input type="text" placeholder = "Password" name='pass' id="pass"><br>
+                        <input type="password" placeholder = "Password" name='pass' id="pass"><br>
 
                         <input type="text" placeholder = "Phone No" name="phone" id="phone"><br>
 

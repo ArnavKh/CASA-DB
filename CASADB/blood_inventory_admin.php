@@ -1,52 +1,52 @@
 <?php 
-    require_once "pdo.php";
+require_once "pdo.php";
 ?>
 
 <?php 
-        if(isset($_POST['D_ID']) && isset($_POST['bank_id']) && isset($_POST['dod'])){
-            $sql = "INSERT INTO blood_inventory(D_ID,Bank_ID,Date_of_Donatn,Quantity,Price,Don_Status) VALUES(:D_ID,:Bank_ID,:Date_of_Donatn,:Quantity,:Price,:Don_Status)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(array(
-                ':D_ID' => $_POST['D_ID'],
-                ':Bank_ID' => $_POST['bank_id'],
-                ':Date_of_Donatn' => $_POST['dod'],
-                ':Quantity' => $_POST['quantity'],
-                ':Price' => $_POST['price'],
-                ':Don_Status' => $_POST['don']
-            ));
-            
-        }
-    ?>
-
-<?php 
-    if( isset($_POST['Bld_Bag_id']) && isset($_POST['delete'])){
-        $sql = "DELETE FROM blood_inventory WHERE Bld_Bag_ID = :zip";
+    if(isset($_POST['D_ID']) && isset($_POST['bank_id']) && isset($_POST['dod'])){
+        $sql = "INSERT INTO blood_inventory(D_ID,Bank_ID,Date_of_Donatn,Quantity,Price,Don_Status) VALUES(:D_ID,:Bank_ID,:Date_of_Donatn,:Quantity,:Price,:Don_Status)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(
-            ':zip' => $_POST['Bld_Bag_id']
+            ':D_ID' => $_POST['D_ID'],
+            ':Bank_ID' => $_POST['bank_id'],
+            ':Date_of_Donatn' => $_POST['dod'],
+            ':Quantity' => $_POST['quantity'],
+            ':Price' => $_POST['price'],
+            ':Don_Status' => $_POST['don']
         ));
+        
     }
+?>
+
+<?php 
+if( isset($_POST['Bld_Bag_id']) && isset($_POST['delete'])){
+    $sql = "DELETE FROM blood_inventory WHERE Bld_Bag_ID = :zip";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(
+        ':zip' => $_POST['Bld_Bag_id']
+    ));
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title> CASA Database </title>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title> CASA Database </title>
 
-          <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="styles.css">
 
-          <script src="https://kit.fontawesome.com/f890b33209.js" crossorigin="anonymous"></script>
-          <link rel="stylesheet" href="home-nav.css">
-     </head>
+            <script src="https://kit.fontawesome.com/f890b33209.js" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="home-nav.css">
+    </head>
 
-     <body>
+    <body>
         <div class="main-container">
             <div class="left-menu">
                 <div>
-                        <a href = "home.php"><h1 id = "navName"><b>CASA</b></h1></a>
+                        <a href = "home_admin.php"><h1 id = "navName"><b>CASA</b></h1></a>
                 </div>
 
                 <ul>

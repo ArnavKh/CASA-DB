@@ -49,7 +49,7 @@ mysqli_close($conn);
 
      <body>
 
-          <div class="main-container">
+     <div class="main-container">
           <div class="left-menu">
                <div>
                     <a href = "home.php"><h1 id = "navName"><b>CASA</b></h1></a>
@@ -66,10 +66,10 @@ mysqli_close($conn);
                     </li>
                     <li class="sidebar-item"><a class="sidebar-link" href="blood_inventory_user.php"><i class="fas fa-vials"></i>
                          Inventory</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="staff.php"><i class="fas fa-user-md"></i> Staff
+                    <!-- <li class="sidebar-item"><a class="sidebar-link" href="staff.php"><i class="fas fa-user-md"></i> Staff
                          </a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="BloodBank.php"><i class="fas fa-user-md"></i> Blood Bank
-                    </a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="BloodBank_admin.php"><i class="fas fa-clinic-medical"></i> Blood Bank
+                    </a></li> -->
                </ul>
           </div>
      </div>

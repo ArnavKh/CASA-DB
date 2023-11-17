@@ -18,7 +18,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['S_Name']))
 
           <link rel="stylesheet" href="styles.css">
 
-          <!-- <script src="https://kit.fontawesome.com/f890b33209.js" crossorigin="anonymous"></script> -->
+          <script src="https://kit.fontawesome.com/f890b33209.js" crossorigin="anonymous"></script>
           <link rel="stylesheet" href="home-nav.css">
      </head>
 

@@ -33,6 +33,8 @@ CREATE TABLE Staff (S_ID INT PRIMARY KEY AUTO_INCREMENT, Bank_ID INT NOT NULL, S
 					S_Position VARCHAR(40) NOT NULL, S_Email VARCHAR(120) NOT NULL UNIQUE, S_Password VARCHAR(40) NOT NULL,
                     S_Phone_No BIGINT NOT NULL, FOREIGN KEY (Bank_ID) REFERENCES Blood_Bank(Bank_ID));
    
+select * from staff;
+
 ALTER TABLE Blood_Bank ADD FOREIGN KEY (Mgr_ID) REFERENCES Staff(S_ID);
 
 CREATE TABLE Blood_Inventory  ( Bld_Bag_ID BIGINT PRIMARY KEY AUTO_INCREMENT, D_ID INT NOT NULL, 
@@ -98,8 +100,11 @@ VALUES
   (2, 2, 'Lisa Johnson', 'Nurse', 'lisa@example.com', '1234', 2222222223),
   (3, 3, 'John Davis', 'Technician', 'john@example.com', '1234', 3333333334),
   (4, 4, 'Susan Wilson', 'Nurse', 'susan@example.com', '1234', 4444444445),
-  (5, 5, 'Arnav Khadkatkar', 'Technician', 'akhadkatkar@gmail.com', '1234', 5555555556);
+  (5, 5, 'Arnav Khadkatkar', 'Admin', 'akhadkatkar@gmail.com', '1234', 5555555556);
 
+INSERT INTO Staff 
+VALUES
+  (6, 1, 'Chidrupee Kalle', 'User', 'chidrupeekalle@gmail.com', '1234', 23454674543);
 -- Update records in Blood_Bank
 
 UPDATE Blood_Bank 

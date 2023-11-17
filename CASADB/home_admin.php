@@ -22,12 +22,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['S_Name']))
           <link rel="stylesheet" href="home-nav.css">
      </head>
 
-<body class = "homeBody">
+     <body class = "homeBody">
 
-     <div class="main-container">
+          <div class="main-container">
                <div class="left-menu">
                     <div>
-                         <a href = "home.php"><h1 id = "navName"><b>CASA</b></h1></a>
+                         <a href = "home_admin.php"><h1 id = "navName"><b>CASA</b></h1></a>
                     </div>
 
                     <ul>

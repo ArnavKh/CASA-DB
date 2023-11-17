@@ -82,7 +82,7 @@
 
                         <input type="hidden" name="S_ID" value="<?= $id?>">
 
-                        <input type="Submit" name = "update" value="Update Staff">
+                        <input type="Submit" name = "update" value="Update Staff" class = "submitBtn">
                     </div>
                 </form>
         
