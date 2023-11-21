@@ -43,55 +43,52 @@
     $id = htmlentities($row['Bld_Bag_ID']);
 ?>
 
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
 
-    </head>
+     <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title> CASA Database </title>
+
+          <link rel="stylesheet" href="styles.css">
+
+          <script src="https://kit.fontawesome.com/f890b33209.js" crossorigin="anonymous"></script>
+          <link rel="stylesheet" href="home-nav.css">
+     </head>
+
     <body>
-    <div class='update'>
-        <h3>Update Blood Inventory</h3>
-        
-        <form method="POST">
-            
-        <p>
-                <label for="D_ID">Donor ID:</label>
-                <input type="text" name = "D_ID" value="<?= $d?>"><br>
-            </p>
-
-            <p>
-                <label for="Bank_ID">Bank ID: </label>
-                <input type="text" name="bank_id" value="<?= $b?>">
-            </p>
-
-            <p>
-                <label for="date">Date Of Donation:</label>
-                <input type="date" name="dod" id="dod" value="<?= $dodn?>">
-            </p>
-
-            <p>
-                <label for="quan">Quantity: </label>
-                <input type="text" name='quantity' id="quant" value="<?= $q?>"><br>
-            </p>
-
-            <p>
-                <label for="price">Price:</label>
-                <input type="text" name="price" value="<?= $p?>"><br>
-            </p>
-
-            <p>
-                <label for="inp">Status:</label>
-                <input type="text" name = 'don' value='<?= $dst?>'>
-            </p>
-
-            <p>
+        <div class = "leftContainer">
+            <div class = "add">
+                <h3>Update Blood Inventory</h3>
                 
-                <input type="hidden" name="Bld_Bag_ID" value="<?= $id?>">
-            </p>
-            <input type="submit" name="update" value="Update Blood Inventory">
-        </form>
+                <form method="POST">
+                    <div class = "form">
+                        <!-- <label for="D_ID">Donor ID:</label> -->
+                        <input type="text" placeholder = "Donor ID" name = "D_ID" value="<?= $d?>"><br>
 
-        
+                        <!-- <label for="Bank_ID">Bank ID: </label> -->
+                        <input type="text" placeholder = "Blood Bank ID" name="bank_id" value="<?= $b?>">
+
+                        <!-- <label for="date">Date Of Donation:</label> -->
+                        <input type="date" placeholder = "Date of Donation" name="dod" id="dod" value="<?= $dodn?>"><br>
+
+                        <!-- <label for="quan">Quantity: </label> -->
+                        <input type="text" placeholder = "Quantity" name='quantity' id="quant" value="<?= $q?>"><br>
+
+                        <!-- <label for="price">Price:</label> -->
+                        <input type="text" placeholder = "Price" name="price" value="<?= $p?>"><br>
+
+                        <!-- <label for="inp">Status:</label> -->
+                        <input type="text" placeholder = "Status" name = 'don' value='<?= $dst?>'><br>
+
+                        <input type="hidden" name="Bld_Bag_ID" value="<?= $id?>">
+
+                        <input type="submit" name="update" value="Update Inventory" class = "submitBtn">
+                    </div>
+                </form>                
+            </div>
         </div>
-
-    </body>
+    </body>
 </html>

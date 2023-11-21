@@ -105,7 +105,7 @@
         <div class = "rightContainer">
             <div class = "search">
                     <h1>Search Recipient</h1>
-                    <form method="GET">
+                    <form method="POST">
                         <div class = "form" id = "searchInput">
                                 <!-- <label for="id">Recipient_ID:</label> -->
                                 <input type="text" placeholder = "Recipient ID" name = "r_id" id="r_id" />
@@ -117,33 +117,41 @@
                     </form>
 
                     <div class = "searchRes">
-                        <?php 
-                            if( isset($_GET['r_id']) && isset($_GET['name'])){
-                                $sql1 = "SELECT * FROM Recipient
-                                            WHERE Rec_ID=:id OR Rec_name like :name";
+                    <?php
+                    if(isset($_POST['search'])){
+                            $id = $_POST['r_id'];
+                            $name = $_POST['name'];
+                            if( $id && $name){
+                                $sql1 = "SELECT * FROM recipient
+                                            WHERE Rec_ID=:id AND Rec_Name like :name";
                                 $stmt1 = $pdo->prepare($sql1);
                                 $stmt1->execute(array(
-                                    ':id' => $_GET['r_id'],
-                                    ':name' => $_GET['name']
+                                    ':id' => $_POST['r_id'],
+                                    ':name' => '%'.$_POST['name'].'%'
                                 ));
                                 $row = $stmt1->fetch(PDO::FETCH_ASSOC);
-                                echo '<br><br>';
-                                echo '<table border="1">'."\n";
+                                echo '<table border = "1">'."\n";
                                 echo '<tr><td>';
+                                echo 'Recipint ID';
+                                echo '</td><td>';
                                 echo 'Name';
                                 echo '</td><td>';
-                                echo 'DOB';
+                                echo 'Dob';
                                 echo '</td><td>';
                                 echo 'Gender';
                                 echo '</td><td>';
-                                echo 'Blood Type';
+                                echo 'Blood_Type';
                                 echo '</td><td>';
                                 echo 'Email';
                                 echo '</td><td>';
                                 echo 'Phone No';
                                 echo '</td></tr>';
-                                echo "<tr><td>";
+                                
+                                
 
+                                echo "<tr><td>";
+                                echo $row['Rec_ID'];
+                                echo "</td><td>";
                                 echo $row['Rec_Name'];
                                 echo "</td><td>";
                                 echo $row['Rec_DoB'];
@@ -155,11 +163,121 @@
                                 echo $row['Rec_Email'];
                                 echo "</td><td>";
                                 echo $row['Rec_Phone_No'];
-                                echo "</td></tr>";
+                                
+                                
+                                echo ("</td></tr>");
+
                                 echo "</table>\n";
 
                             }
-                        ?>
+                            else if($id && !$name){
+                                $sql1 = "SELECT * FROM recipient
+                                            WHERE Rec_ID=:id ";
+                                $stmt1 = $pdo->prepare($sql1);
+                                $stmt1->execute(array(
+                                    ':id' => $_POST['r_id']
+                                    
+                                ));
+                                $row = $stmt1->fetch(PDO::FETCH_ASSOC);
+                                echo '<table border = "1">'."\n";
+                                echo '<tr><td>';
+                                echo 'Recipint ID';
+                                echo '</td><td>';
+                                echo 'Name';
+                                echo '</td><td>';
+                                echo 'Dob';
+                                echo '</td><td>';
+                                echo 'Gender';
+                                echo '</td><td>';
+                                echo 'Blood_Type';
+                                echo '</td><td>';
+                                echo 'Email';
+                                echo '</td><td>';
+                                echo 'Phone No';
+                                echo '</td></tr>';
+                                echo "<tr><td>";
+                                
+
+                                echo "<tr><td>";
+                                echo $row['Rec_ID'];
+                                echo "</td><td>";
+                                echo $row['Rec_Name'];
+                                echo "</td><td>";
+                                echo $row['Rec_DoB'];
+                                echo "</td><td>";
+                                echo $row['Rec_Gender'];
+                                echo "</td><td>";
+                                echo $row['Rec_Blood_Type'];
+                                echo "</td><td>";
+                                echo $row['Rec_Email'];
+                                echo "</td><td>";
+                                echo $row['Rec_Phone_No'];
+                                
+                                echo ("</td></tr>");
+                                echo ('</form>');
+                                
+
+                                echo "</table>\n";
+
+                                
+
+                            }
+                            else if(!$id && $name){
+                                $sql1 = "SELECT * FROM recipient
+                                            WHERE Rec_Name like :name ";
+                                $stmt1 = $pdo->prepare($sql1);
+                                $stmt1->execute(array(
+                                    ':name' => '%'.$_POST['name'].'%'
+                                    
+                                ));
+                                $row = $stmt1->fetch(PDO::FETCH_ASSOC);
+                                echo '<table border = "1">'."\n";
+                                echo '<tr><td>';
+                                echo 'Recipint ID';
+                                echo '</td><td>';
+                                echo 'Name';
+                                echo '</td><td>';
+                                echo 'Dob';
+                                echo '</td><td>';
+                                echo 'Gender';
+                                echo '</td><td>';
+                                echo 'Blood_Type';
+                                echo '</td><td>';
+                                echo 'Email';
+                                echo '</td><td>';
+                                echo 'Phone No';
+                                echo '</td></tr>';
+                                echo "<tr><td>";
+                                
+
+                                echo "<tr><td>";
+                                echo $row['Rec_ID'];
+                                echo "</td><td>";
+                                echo $row['Rec_Name'];
+                                echo "</td><td>";
+                                echo $row['Rec_DoB'];
+                                echo "</td><td>";
+                                echo $row['Rec_Gender'];
+                                echo "</td><td>";
+                                echo $row['Rec_Blood_Type'];
+                                echo "</td><td>";
+                                echo $row['Rec_Email'];
+                                echo "</td><td>";
+                                echo $row['Rec_Phone_No'];
+                                echo ("</td></tr>");
+                                echo ('</form>');
+                               
+
+                                echo "</table>\n";
+                            }
+                            else
+                            {
+                                $message = "Enter atleast one of the entries.";
+                                print $message;
+                            }
+                        
+                        }
+                    ?>
                     </div>
             </div>
 
@@ -209,4 +327,3 @@
         </div>
     </body>
 </html>
-

@@ -58,12 +58,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['S_Name']))
           </div>
           
           <div>
-               <h3><a href = "Donor.php">Donor</a></h3>
+               <!-- <h3><a href = "Donor.php">Donor</a></h3>
                <h3><a href = "Recipient_user.php">Recipient</a></h3>
-               <!-- <h3><a href = "staff.php">Staff</a></h3>
-               <h3><a href = "BloodBank.php">Blood Bank</a></h3> -->
+               <h3><a href = "staff.php">Staff</a></h3>
+               <h3><a href = "BloodBank.php">Blood Bank</a></h3> 
                <h3><a href = "transaction.php">Transfusion</a></h3>
-               <h3><a href = "blood_inventory_user.php">Inventory</a></h3>
+               <h3><a href = "blood_inventory_user.php">Inventory</a></h3> -->
           </div>
      </body>
 </html>

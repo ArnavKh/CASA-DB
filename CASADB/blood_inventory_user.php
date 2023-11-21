@@ -142,6 +142,9 @@
                             echo ("</td></tr>");
                             echo "</table>\n";
                         }
+                        else{
+                            print ("Enter Bag ID");
+                        }
                     ?>
                 </div>
             </div>

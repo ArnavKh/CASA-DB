@@ -115,7 +115,7 @@
         </div>
 
         <div class = "rightContainer">
-            <div class = "search">
+        <div class = "search">
                     <h1>Search Recipient</h1>
                     <form method="GET">
                         <div class = "form" id = "searchInput">
@@ -129,34 +129,37 @@
                     </form>
 
                     <div class = "searchRes">
-                        <?php 
-                            if( isset($_GET['r_id']) && isset($_GET['name'])){
-                                $sql1 = "SELECT * FROM Recipient
-                                            WHERE Rec_ID=:id OR Rec_name like :name";
+                    <?php
+                    if(isset($_POST['search'])){
+                            $id = $_POST['r_id'];
+                            $name = $_POST['name'];
+                            if( $id && $name){
+                                $sql1 = "SELECT * FROM recipient
+                                            WHERE Rec_ID=:id AND Rec_Name like :name";
                                 $stmt1 = $pdo->prepare($sql1);
                                 $stmt1->execute(array(
-                                    ':id' => $_GET['r_id'],
-                                    ':name' => $_GET['name']
+                                    ':id' => $_POST['r_id'],
+                                    ':name' => '%'.$_POST['name'].'%'
                                 ));
-
-
                                 $row = $stmt1->fetch(PDO::FETCH_ASSOC);
                                 echo '<table border = "1">'."\n";
                                 echo '<tr><td>';
-                                echo 'Recipient ID';
+                                echo 'Recipint ID';
                                 echo '</td><td>';
                                 echo 'Name';
                                 echo '</td><td>';
-                                echo 'DOB';
+                                echo 'Dob';
                                 echo '</td><td>';
                                 echo 'Gender';
                                 echo '</td><td>';
-                                echo 'Blood Type';
+                                echo 'Blood_Type';
                                 echo '</td><td>';
                                 echo 'Email';
                                 echo '</td><td>';
                                 echo 'Phone No';
                                 echo '</td></tr>';
+                                echo "<tr><td>";
+                                
 
                                 echo "<tr><td>";
                                 echo $row['Rec_ID'];
@@ -172,25 +175,138 @@
                                 echo $row['Rec_Email'];
                                 echo "</td><td>";
                                 echo $row['Rec_Phone_No'];
-                                echo "</td><td>\n";
-                                // echo ('<form action="Recipient_update.php" method = "POST" >');
-                                // echo ('<input type="hidden" name="Rec_id" value="'.$row2['Rec_ID'].'">'."\n");
-                                // echo ('<input type="submit" name= "update" value="update">');
-                                // echo ('</form>');
+                                echo "</td><td>";
                                 echo ('<a href="Recipient_update.php?Rec_ID='.$row['Rec_ID'].'">Edit</a>');
                                 echo "</td><td>\n";
                                 echo ('<form method = "POST">');
                                 echo ('<input type="hidden" name="Rec_id" value="'.$row['Rec_ID'].'">'."\n");
                                 echo ('<input type="submit" name= "delete" value="Delete" class = "deleteBtn">');
                                 echo ('</form>');
-                                echo "</td></tr>";
+                                echo ("</td></tr>");
 
                                 echo "</table>\n";
 
                             }
-                        ?>
+                            else if($id && !$name){
+                                $sql1 = "SELECT * FROM recipient
+                                            WHERE Rec_ID=:id ";
+                                $stmt1 = $pdo->prepare($sql1);
+                                $stmt1->execute(array(
+                                    ':id' => $_POST['r_id']
+                                    
+                                ));
+                                $row = $stmt1->fetch(PDO::FETCH_ASSOC);
+                                echo '<table border = "1">'."\n";
+                                echo '<tr><td>';
+                                echo 'Recipint ID';
+                                echo '</td><td>';
+                                echo 'Name';
+                                echo '</td><td>';
+                                echo 'Dob';
+                                echo '</td><td>';
+                                echo 'Gender';
+                                echo '</td><td>';
+                                echo 'Blood_Type';
+                                echo '</td><td>';
+                                echo 'Email';
+                                echo '</td><td>';
+                                echo 'Phone No';
+                                echo '</td></tr>';
+                                echo "<tr><td>";
+                                
+
+                                echo "<tr><td>";
+                                echo $row['Rec_ID'];
+                                echo "</td><td>";
+                                echo $row['Rec_Name'];
+                                echo "</td><td>";
+                                echo $row['Rec_DoB'];
+                                echo "</td><td>";
+                                echo $row['Rec_Gender'];
+                                echo "</td><td>";
+                                echo $row['Rec_Blood_Type'];
+                                echo "</td><td>";
+                                echo $row['Rec_Email'];
+                                echo "</td><td>";
+                                echo $row['Rec_Phone_No'];
+                                echo "</td><td>";
+                                echo ('<a href="Recipient_update.php?Rec_ID='.$row['Rec_ID'].'">Edit</a>');
+                                echo "</td><td>\n";
+                                echo ('<form method = "POST">');
+                                echo ('<input type="hidden" name="Rec_id" value="'.$row['Rec_ID'].'">'."\n");
+                                echo ('<input type="submit" name= "delete" value="Delete" class = "deleteBtn">');
+                                echo ('</form>');
+                                echo ("</td></tr>");
+
+                                echo "</table>\n";
+
+                                
+
+                            }
+                            else if(!$id && $name){
+                                $sql1 = "SELECT * FROM recipient
+                                            WHERE Rec_Name like :name ";
+                                $stmt1 = $pdo->prepare($sql1);
+                                $stmt1->execute(array(
+                                    ':name' => '%'.$_POST['name'].'%'
+                                    
+                                ));
+                                $row = $stmt1->fetch(PDO::FETCH_ASSOC);
+                                echo '<table border = "1">'."\n";
+                                echo '<tr><td>';
+                                echo 'Recipint ID';
+                                echo '</td><td>';
+                                echo 'Name';
+                                echo '</td><td>';
+                                echo 'Dob';
+                                echo '</td><td>';
+                                echo 'Gender';
+                                echo '</td><td>';
+                                echo 'Blood_Type';
+                                echo '</td><td>';
+                                echo 'Email';
+                                echo '</td><td>';
+                                echo 'Phone No';
+                                echo '</td></tr>';
+                                echo "<tr><td>";
+                                
+
+                                echo "<tr><td>";
+                                echo $row['Rec_ID'];
+                                echo "</td><td>";
+                                echo $row['Rec_Name'];
+                                echo "</td><td>";
+                                echo $row['Rec_DoB'];
+                                echo "</td><td>";
+                                echo $row['Rec_Gender'];
+                                echo "</td><td>";
+                                echo $row['Rec_Blood_Type'];
+                                echo "</td><td>";
+                                echo $row['Rec_Email'];
+                                echo "</td><td>";
+                                echo $row['Rec_Phone_No'];
+                                echo "</td><td>";
+                                echo ('<a href="Recipient_update.php?Rec_ID='.$row['Rec_ID'].'">Edit</a>');
+                                echo "</td><td>\n";
+                                echo ('<form method = "POST">');
+                                echo ('<input type="hidden" name="Rec_id" value="'.$row['Rec_ID'].'">'."\n");
+                                echo ('<input type="submit" name= "delete" value="Delete" class = "deleteBtn">');
+                                echo ('</form>');
+                                echo ("</td></tr>");
+
+                                echo "</table>\n";
+                            }
+                            else
+                            {
+                                $message = "Enter atleast one of the entries.";
+                                print $message;
+                            }
+                        
+                        }
+                    ?>
                     </div>
             </div>
+
 
 
         

@@ -116,7 +116,7 @@
 
                     <div class = "searchRes">
                          <?php
-                              $conn = mysqli_connect('localhost:3307', 'root', 'root', 'BloodBank');
+                              $conn = mysqli_connect('localhost:3325', 'surab', 'neel', 'BloodBank');
 
                               if (isset($_POST['searchBank']))
                               {
@@ -206,7 +206,7 @@
           <div class = "view">
             <h1>All Blood Banks</h1>
             <?php
-                $conn = mysqli_connect('localhost:3307', 'root', 'root', 'BloodBank');
+                $conn = mysqli_connect('localhost:3325', 'surab', 'neel', 'BloodBank');
                 
                 $query = "SELECT * FROM Blood_Bank";
                 

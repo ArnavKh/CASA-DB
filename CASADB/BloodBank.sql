@@ -106,3 +106,53 @@ VALUES
   (333333333, 5, 5, 'O+', '2023-09-15', 2, 50, 'Pending');
 
 select * from donor; 
+
+-- Trigger to update Last Date of Donation of Donor
+
+DELIMITER //
+CREATE TRIGGER UpdateLastDonationDate
+AFTER INSERT ON Blood_Inventory
+FOR EACH ROW
+BEGIN
+  UPDATE Donor
+  SET Last_Date_of_Donation = NEW.Date_of_Donatn
+  WHERE D_ID = NEW.D_ID;
+END//
+
+DELIMITER ;
+
+
+-- Trigger to Check if Donor's Last Date of Donation was before 90 days
+
+DELIMITER //
+
+CREATE TRIGGER CheckEligibilty
+BEFORE INSERT ON Donor
+FOR EACH ROW 
+	BEGIN 
+		
+		IF NEW.Last_Date_of_Donation IS NOT NULL AND datediff(CURDATE(), NEW.Last_Date_of_Donation) < 90 THEN 
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'Person can only donate 90 days after his last donation';
+		END IF;
+        
+  END //
+    
+DELIMITER ;
+
+-- Trigger to Check if Age > 18
+
+DELIMITER //
+
+CREATE TRIGGER AgeChk
+BEFORE INSERT ON Donor
+FOR EACH ROW 
+	BEGIN
+		IF ((datediff(CURDATE(), NEW.D_DoB)) / 365 ) < 18 THEN 
+        SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'Age of Donor must be above 18';
+		END IF;
+        
+	END//
+    
+DELIMITER ;

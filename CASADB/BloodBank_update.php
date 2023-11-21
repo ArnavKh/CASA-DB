@@ -41,50 +41,60 @@
     $id = htmlentities($row['Bank_ID']);
 ?>
 
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> CASA Database </title>
+
+        <link rel="stylesheet" href="styles.css">
+
+        <script src="https://kit.fontawesome.com/f890b33209.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="home-nav.css">
     </head>
     <body>
-    <div class='update'>
-        <h3>Update Donor</h3>
-        
-        <form method="POST">
-            
-            <p>
-                <label for="in">Name:</label>
-                <input type = "text" name = 'bName' id = "bName" value="<?= $n?>" required /><br />
-            </p>
+    <body>
+        <div class = "leftContainer">
+            <div class = "add">
+                
+                <h3>Update Blood Bank</h3>
+                
+                <form method="POST">
+                    <div class = "form">
+                        <!-- <label for="in">Name:</label> -->
+                        <input type = "text" name = 'bName' id = "bName" value="<?= $n?>" required /><br />
+                    
 
-            <p>
-                <label for = "email">Email:</label>
-                <input type = "email"  name = 'bEmail' id = "bEmail" value="<?= $e?>" required /><br />
-            </p>
+                        <!-- <label for = "email">Email:</label> -->
+                        <input type = "email"  name = 'bEmail' id = "bEmail" value="<?= $e?>" required /><br />
+                    
 
-           <p>
-            <label for = "phone">Phone:</label>
-                <input type = "tel" name = 'bPhone' id = "bPhone" value="<?= $p?>" required /><br />
-           </p>
+                        <!-- <label for = "phone">Phone:</label> -->
+                        <input type = "tel" name = 'bPhone' id = "bPhone" value="<?= $p?>" required /><br />
+                    
 
-            <p>
-                <label for = "loc">Location:</label>
-                <input type = "text"  name = 'loc1'  value="<?= $l?>" required /><br />
-            </p>
+                        <!-- <label for = "loc">Location:</label> -->
+                        <input type = "text"  name = 'loc1'  value="<?= $l?>" required /><br />
+                    
 
-            <p>
-                <label for = "Mgr">Manager ID:</label>
-                <input type = "text" name = 'mi1' value="<?= $m?>" />
-            </p>
+                        <!-- <label for = "Mgr">Manager ID:</label> -->
+                        <input type = "text" name = 'mi1' value="<?= $m?>" />
+                    
 
-            
-        
-            <input type="hidden" name="Bank_ID" value="<?= $id?>">
-            
-            <input type="submit" name="update" value="Update Bank">
-        </form>
+                    
+                
+                        <input type="hidden" name="Bank_ID" value="<?= $id?>">
+                    
+                        <input type="submit" name="update" value="Update Bank" class="submitBtn">
+                    </div>
+                </form>
 
-        
-        </div>
+                    
+            </div>
+        </div>  
 
     </body>
 </html>

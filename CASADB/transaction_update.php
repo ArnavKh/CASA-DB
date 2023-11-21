@@ -41,49 +41,48 @@
     $id = htmlentities($row['Rec_ID']);
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CASA Database</title>
+        
+        <link rel="stylesheet" href="styles.css">
 
+        <script src="https://kit.fontawesome.com/f890b33209.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="home-nav.css">
     </head>
     <body>
-    <div class='update'>
-        <h3>Update a particular recipient</h3>
         
-        <form method="POST">
-            
-            <p>
-                <label for="bag_ID">Bag ID:</label>
-                <input type="text" name = "Bag_ID" value="<?= $b?>"><br>
-            </p>
+        <div class='leftContainer'>
+            <div class = "add">
+                <h3>Update a particular recipient</h3>
+                
+                <form method="POST">
+                    <div class = "from">
+                    
+                        <!-- <label for="bag_ID">Bag ID:</label> -->
+                        <input type="text" placeholder = "Blood Bag ID" name = "Bag_ID" value="<?= $b?>"><br>
 
-            <p>
-                <label for="rec_ID">Recipient ID: </label>
-                <input type="text" name="Rec_id" value="<?= $r?>">
-            </p>
+                        <!-- <label for="rec_ID">Recipient ID: </label> -->
+                        <input type="text" placeholder = "Recipient ID" name="Rec_id" value="<?= $r?>"><br>
 
-            <p>
-                <label for="date">Transaction Date:</label>
-                <input type="date" name="T_date" value="<?= $t?>">
-            </p>
+                        <!-- <label for="date">Transaction Date:</label> -->
+                        <input type="date" placeholder = "Transaction Date" name="T_date" value="<?= $t?>"><br>
 
-            <p>
-                <label for="quan">Quantity: </label>
-                <input type="text" name='quantity' id="quant" value="<?= $q?>"><br>
-            </p>
+                        <!-- <label for="quan">Quantity: </label> -->
+                        <input type="text" placeholder = "QUantity" name='quantity' id="quant" value="<?= $q?>"><br>
 
-            <p>
-                <label for="T_time">Transaction Time:</label>
-                <input type="time" name="T_time" value="<?= $tt?>"><br>
-            </p>
+                        <!-- <label for="T_time">Transaction Time:</label> -->
+                        <input type="time" placeholder = "Transaction Time" name="T_time" value="<?= $tt?>"><br>
 
-            <p>
-                <input type="hidden" name="T_ID" value="<?= $id?>">
-            </p>
-            <input type="Submit" name = "update" value="Update Transaction">
-        </form>
-
-        
+                        <input type="hidden" name="T_ID" value="<?= $id?>"><br>
+                        <input type="submit" name="update" value="Update Transaction" class="submitBtn">
+                    </div>
+                </form>
+            </div>
         </div>
-
-    </body>
+    </body>
 </html>
