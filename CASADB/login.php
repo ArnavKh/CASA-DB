@@ -33,7 +33,7 @@
                          $_SESSION['id'] = $row['S_ID'];
                          $_SESSION['S_Name'] = $row['S_Name'];
 
-                         if ($row['S_Position'] === 'Admin')
+                         if ($row['S_Position'] === 'Administrator')
                          {
                               header("Location: home_admin.php");
                          }
